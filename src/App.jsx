@@ -1,31 +1,34 @@
 import React from 'react';
 import FlowingMouseTrail from './components/FlowingMouseTrail';
-import ScrollHero from './components/ScrollHero';
+import ProfileCard from './components/ProfileCard';
 import About from './components/About';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
-import './index.css'; 
+import './index.css';
 
 function App() {
   return (
     <div className="App relative">
-      {/* Fixed background hero that stays in place */}
-      <ScrollHero />
-      
-      {/* Mouse trail should be on top of everything */}
-      <FlowingMouseTrail/>
-      
-      {/* Spacer to allow initial scroll space */}
-      <div className="h-screen" id="hero"></div>
-      
-      {/* Scrolling content sections */}
-      <div className="relative z-30">
-        <About />
-        <Projects />
-        <Skills />
-        <Contact />
-      </div>
+      <FlowingMouseTrail />
+      {/* ProfileCard replaces your hero/name section */}
+      <section className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-purple-700 to-blue-900 relative z-20">
+        <ProfileCard
+          name="Javi A. Torres"
+          title="Software Engineer"
+          handle="javicodes"
+          status="Online"
+          contactText="Contact Me"
+          avatarUrl="/path/to/avatar.jpg"
+          showUserInfo={true}
+          enableTilt={true}
+          onContactClick={() => console.log('Contact clicked')}
+        />
+      </section>
+      <About />
+      <Projects />
+      <Skills />
+      <Contact />
     </div>
   );
 }
