@@ -1,15 +1,31 @@
 import React from 'react';
 import FlowingMouseTrail from './components/FlowingMouseTrail';
-import Hero from './components/Hero';
+import ScrollHero from './components/ScrollHero';
+import About from './components/About';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Contact from './components/Contact';
 import './index.css'; 
 
 function App() {
   return (
-    <div className="App">
+    <div className="App relative">
+      {/* Fixed background hero that stays in place */}
+      <ScrollHero />
+      
+      {/* Mouse trail should be on top of everything */}
       <FlowingMouseTrail/>
-      <main className="relative z-20">
-        <Hero/>
-      </main>
+      
+      {/* Spacer to allow initial scroll space */}
+      <div className="h-screen" id="hero"></div>
+      
+      {/* Scrolling content sections */}
+      <div className="relative z-30">
+        <About />
+        <Projects />
+        <Skills />
+        <Contact />
+      </div>
     </div>
   );
 }
