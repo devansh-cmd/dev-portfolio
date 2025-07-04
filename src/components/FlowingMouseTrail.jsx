@@ -1,5 +1,15 @@
 import React, { useRef, useEffect } from 'react';
 
+// Color palette that cycles based on distance - using unified theme colors
+const COLOR_PALETTE = [
+  { h: 280, s: 90, l: 65 },  // theme-primary-1 (Deep purple)
+  { h: 240, s: 85, l: 70 },  // theme-tertiary-3 (Light blue)
+  { h: 185, s: 80, l: 65 },  // theme-secondary-2 (Medium cyan)
+  { h: 220, s: 85, l: 60 },  // theme-tertiary-1 (Deep blue)
+  { h: 285, s: 85, l: 70 },  // theme-primary-2 (Medium purple)
+  { h: 195, s: 80, l: 68 },  // theme-secondary-4 (Teal)
+];
+
 const FlowingMouseTrail = () => {
   const canvasRef = useRef(null);
   const animationId = useRef(null);
@@ -15,18 +25,6 @@ const FlowingMouseTrail = () => {
   // Shorter trail length
   const TRAIL_LENGTH = 12;
   
-  // Color palette that cycles based on distance
-  const colorPalette = [
-    { h: 280, s: 100, l: 70 }, // Purple
-    { h: 240, s: 100, l: 70 }, // Blue
-    { h: 200, s: 100, l: 70 }, // Cyan
-    { h: 160, s: 100, l: 70 }, // Green
-    { h: 60, s: 100, l: 70 },  // Yellow
-    { h: 30, s: 100, l: 70 },  // Orange
-    { h: 0, s: 100, l: 70 },   // Red
-    { h: 320, s: 100, l: 70 }  // Pink
-  ];
-  
   // Distance threshold for color change (pixels)
   const COLOR_CHANGE_DISTANCE = 150;
   
@@ -41,11 +39,6 @@ const FlowingMouseTrail = () => {
       baseOpacity: 1,
       colorIndex: 0
     }));
-  };
-
-  // Get current color based on distance
-  const getCurrentColor = () => {
-    return colorPalette[currentColorIndex.current % colorPalette.length];
   };
 
   // Calculate distance between two points
@@ -168,11 +161,11 @@ const FlowingMouseTrail = () => {
           if (opacity <= 0.01 || size <= 0.3) return;
           
           // Get colors for smooth transition
-          const colorIndex1 = Math.floor(point.colorIndex) % colorPalette.length;
-          const colorIndex2 = Math.ceil(point.colorIndex) % colorPalette.length;
+          const colorIndex1 = Math.floor(point.colorIndex) % COLOR_PALETTE.length;
+          const colorIndex2 = Math.ceil(point.colorIndex) % COLOR_PALETTE.length;
           const colorFactor = point.colorIndex - Math.floor(point.colorIndex);
           
-          const color = lerpColor(colorPalette[colorIndex1], colorPalette[colorIndex2], colorFactor);
+          const color = lerpColor(COLOR_PALETTE[colorIndex1], COLOR_PALETTE[colorIndex2], colorFactor);
           
           ctx.save();
           

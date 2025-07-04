@@ -40,12 +40,12 @@ const ScrollHero = () => {
         className="absolute inset-0 transition-all duration-1000 ease-out"
         style={{
           background: `
-            radial-gradient(circle at 20% 80%, hsla(${280 + currentSection * 30}, 70%, 60%, 0.3) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, hsla(${240 + currentSection * 25}, 80%, 50%, 0.2) 0%, transparent 50%),
-            radial-gradient(circle at 40% 40%, hsla(${320 + currentSection * 20}, 90%, 70%, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 20% 80%, hsla(${280 + (currentSection % 3) * 10}, 85%, 60%, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, hsla(${240 + (currentSection % 3) * 8}, 80%, 65%, 0.2) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, hsla(${190 + (currentSection % 3) * 5}, 75%, 70%, 0.1) 0%, transparent 50%),
             linear-gradient(${135 + scrollY * 0.05}deg, 
-              hsla(${280 + currentSection * 20}, 70%, ${40 + Math.min(scrollY * 0.01, 20)}%, 0.95), 
-              hsla(${240 + currentSection * 15}, 80%, ${30 + Math.min(scrollY * 0.005, 15)}%, 0.9))`,
+              hsla(${280 + (currentSection % 3) * 8}, 85%, ${40 + Math.min(scrollY * 0.01, 20)}%, 0.95), 
+              hsla(${240 + (currentSection % 3) * 6}, 80%, ${30 + Math.min(scrollY * 0.005, 15)}%, 0.9))`,
           opacity: heroOpacity
         }}
       />
@@ -96,8 +96,8 @@ const ScrollHero = () => {
             className="absolute inset-0 blur-xl"
             style={{
               background: `linear-gradient(45deg, 
-                hsla(${280 + currentSection * 30}, 100%, 70%, 0.4),
-                hsla(${240 + currentSection * 25}, 100%, 60%, 0.3))`,
+                hsla(${285 + (currentSection % 3) * 10}, 90%, 70%, 0.4),
+                hsla(${240 + (currentSection % 3) * 8}, 85%, 65%, 0.3))`,
               transform: 'scale(1.2)'
             }}
           />
@@ -108,7 +108,7 @@ const ScrollHero = () => {
             className="relative text-6xl md:text-8xl font-bold text-white leading-tight pb-2 text-center"
             style={{
               textShadow: '0 0 30px rgba(255,255,255,0.5), 0 0 60px rgba(147,51,234,0.3)',
-              background: `linear-gradient(45deg, #ffffff, hsla(${280 + currentSection * 20}, 100%, 80%, 1))`,
+              background: `linear-gradient(45deg, #ffffff, hsla(${285 + (currentSection % 3) * 8}, 90%, 80%, 1))`,
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text'

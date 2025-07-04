@@ -1,0 +1,126 @@
+/* 
+ * Unified Color Theme System
+ * 
+ * This file defines the central color palette for all portfolio components
+ * to ensure visual consistency while maintaining component uniqueness.
+ */
+
+:root {
+  /* Primary Color Palette - Deep Purple/Violet (280-300° hue range) */
+  --theme-primary-1: hsl(280, 90%, 65%);   /* Deep purple */
+  --theme-primary-2: hsl(285, 85%, 70%);   /* Medium purple */
+  --theme-primary-3: hsl(290, 80%, 75%);   /* Light purple */
+  --theme-primary-4: hsl(295, 85%, 68%);   /* Violet */
+  --theme-primary-5: hsl(300, 90%, 72%);   /* Light violet */
+
+  /* Secondary Color Palette - Cyan/Teal (180-200° hue range) */
+  --theme-secondary-1: hsl(180, 85%, 60%);  /* Deep cyan */
+  --theme-secondary-2: hsl(185, 80%, 65%);  /* Medium cyan */
+  --theme-secondary-3: hsl(190, 75%, 70%);  /* Light cyan */
+  --theme-secondary-4: hsl(195, 80%, 68%);  /* Teal */
+  --theme-secondary-5: hsl(200, 85%, 72%);  /* Light teal */
+
+  /* Tertiary Color Palette - Blue Gradients (220-260° hue range) */
+  --theme-tertiary-1: hsl(220, 85%, 60%);   /* Deep blue */
+  --theme-tertiary-2: hsl(230, 80%, 65%);   /* Medium blue */
+  --theme-tertiary-3: hsl(240, 85%, 70%);   /* Light blue */
+  --theme-tertiary-4: hsl(250, 80%, 68%);   /* Blue-purple */
+  --theme-tertiary-5: hsl(260, 85%, 72%);   /* Light blue-purple */
+
+  /* Neutral Colors - Dark backgrounds with subtle warm undertones */
+  --theme-neutral-darkest: hsl(240, 15%, 8%);    /* Nearly black with blue tint */
+  --theme-neutral-darker: hsl(240, 12%, 12%);    /* Very dark blue-gray */
+  --theme-neutral-dark: hsl(240, 10%, 18%);      /* Dark blue-gray */
+  --theme-neutral-medium: hsl(240, 8%, 25%);     /* Medium dark gray */
+  --theme-neutral-light: hsl(240, 6%, 35%);      /* Medium gray */
+
+  /* Accent Colors - Bright whites and light variants for contrast */
+  --theme-accent-white: hsla(0, 0%, 100%, 0.95);     /* Pure white with slight transparency */
+  --theme-accent-light: hsla(240, 20%, 95%, 0.9);    /* Very light blue-tinted white */
+  --theme-accent-soft: hsla(240, 15%, 90%, 0.8);     /* Soft light gray */
+  --theme-accent-subtle: hsla(240, 10%, 85%, 0.6);   /* Subtle light gray */
+
+  /* Component-Specific Color Mappings */
+  
+  /* ProfileCard Holographic Colors - Updated sunpillar mapping */
+  --theme-holo-1: var(--theme-secondary-1);   /* Cyan base */
+  --theme-holo-2: var(--theme-tertiary-3);    /* Light blue */
+  --theme-holo-3: var(--theme-primary-1);     /* Deep purple */
+  --theme-holo-4: var(--theme-secondary-3);   /* Light cyan */
+  --theme-holo-5: var(--theme-tertiary-1);    /* Deep blue */
+  --theme-holo-6: var(--theme-primary-3);     /* Light purple */
+
+  /* Mouse Trail Colors - Unified palette for smooth transitions */
+  --theme-trail-1: var(--theme-primary-1);     /* Deep purple */
+  --theme-trail-2: var(--theme-tertiary-3);    /* Light blue */
+  --theme-trail-3: var(--theme-secondary-2);   /* Medium cyan */
+  --theme-trail-4: var(--theme-tertiary-1);    /* Deep blue */
+  --theme-trail-5: var(--theme-primary-2);     /* Medium purple */
+  --theme-trail-6: var(--theme-secondary-4);   /* Teal */
+
+  /* Hero Background Colors - Section-based variations */
+  --theme-hero-base-1: var(--theme-primary-1);    /* Primary base */
+  --theme-hero-base-2: var(--theme-tertiary-3);   /* Secondary base */
+  --theme-hero-accent-1: var(--theme-secondary-1); /* Accent color 1 */
+  --theme-hero-accent-2: var(--theme-primary-3);   /* Accent color 2 */
+
+  /* Utility Colors for Dynamic Effects */
+  --theme-glow-primary: hsla(285, 85%, 70%, 0.6);     /* Primary glow */
+  --theme-glow-secondary: hsla(190, 75%, 70%, 0.5);   /* Secondary glow */
+  --theme-glow-tertiary: hsla(240, 85%, 70%, 0.4);    /* Tertiary glow */
+
+  /* Opacity and Blend Mode Utilities */
+  --theme-opacity-subtle: 0.1;
+  --theme-opacity-light: 0.3;
+  --theme-opacity-medium: 0.6;
+  --theme-opacity-strong: 0.8;
+  --theme-opacity-solid: 0.95;
+}
+
+/* Component-specific theme extensions */
+
+/* ProfileCard theme integration */
+.theme-profile-card {
+  --sunpillar-1: var(--theme-holo-1);
+  --sunpillar-2: var(--theme-holo-2);
+  --sunpillar-3: var(--theme-holo-3);
+  --sunpillar-4: var(--theme-holo-4);
+  --sunpillar-5: var(--theme-holo-5);
+  --sunpillar-6: var(--theme-holo-6);
+  --sunpillar-clr-1: var(--theme-holo-1);
+  --sunpillar-clr-2: var(--theme-holo-2);
+  --sunpillar-clr-3: var(--theme-holo-3);
+  --sunpillar-clr-4: var(--theme-holo-4);
+  --sunpillar-clr-5: var(--theme-holo-5);
+  --sunpillar-clr-6: var(--theme-holo-6);
+}
+
+/* Accessibility and contrast utilities */
+.theme-high-contrast {
+  --theme-accent-white: hsl(0, 0%, 100%);
+  --theme-accent-light: hsl(240, 20%, 98%);
+}
+
+/* Debug helper - uncomment to visualize theme colors */
+/*
+.theme-debug {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: var(--theme-neutral-dark);
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--theme-accent-white);
+  z-index: 9999;
+}
+
+.theme-debug .color-swatch {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin: 2px;
+  border-radius: 3px;
+  border: 1px solid var(--theme-accent-subtle);
+}
+*/
