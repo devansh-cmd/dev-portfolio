@@ -140,7 +140,7 @@
 
 .pc-card:hover .pc-shine,
 .pc-card.active .pc-shine {
-  filter: brightness(0.85) contrast(1.5) saturate(0.5);
+  filter: brightness(0.95) contrast(1.2) saturate(0.7);
   animation: none;
 }
 
@@ -148,7 +148,7 @@
 .pc-card.active .pc-shine::before,
 .pc-card:hover .pc-shine::after,
 .pc-card.active .pc-shine::after {
-  opacity: 1;
+  opacity: 0.4;
 }
 
 .pc-shine::before {
@@ -168,12 +168,13 @@
 }
 
 .pc-glare {
-  transform: translate3d(0, 0, 1.1px);
-  overflow: hidden;
-  background-image: radial-gradient(farthest-corner circle at var(--pointer-x) var(--pointer-y), hsl(248, 25%, 80%) 12%, hsla(207, 40%, 30%, 0.8) 90%);
-  mix-blend-mode: overlay;
-  filter: brightness(0.8) contrast(1.2);
-  z-index: 4;
+  pointer-events: none;
+  position: absolute;
+  border-radius: inherit;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at var(--pointer-x,50%) var(--pointer-y,50%), rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 80%);
+  opacity: 0.5;
+  z-index: 2;
 }
 
 .pc-avatar-content {
